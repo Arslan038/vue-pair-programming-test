@@ -7,17 +7,22 @@
     "dev": "vite --mode localhost --host",
     "build": "rm -rf dist && npm run check-typing && vite build",
     "preview": "vite preview --host",
-    "check-typing": "vue-tsc --build --noEmit"
+    "check-typing": "vue-tsc --build --noEmit",
+    "test": "vitest"
   },
   "dependencies": {
     "vue": "^3.5.30"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^6.0.4",
+    "@vitest/coverage-v8": "^4.1.9",
+    "@vue/test-utils": "^2.4.11",
     "@vue/tsconfig": "^0.8.1",
+    "jsdom": "^29.1.1",
     "sass-embedded": "^1.98.0",
     "typescript": "~5.9.3",
     "vite": "8.0.1",
+    "vitest": "^4.1.9",
     "vue-tsc": "^3.2.5"
   },
   "keywords": [],

@@ -1,14 +1,13 @@
 <template>
 	<h1>Counter</h1>
-	<p>Current Count: {{ count }}</p>
+	<p>Current Count: <span data-test-id="count-value">{{ count }}</span></p>
 
-	<BaseButton variant="primary" text="Increment" @click="increment" />
-	<BaseButton variant="secondary" text="Decrement" @click="decrement" />
-	<BaseButton variant="warning" text="Reset" @click="reset" />
+	<BaseButton variant="primary" text="Increment" data-test-id="btn-increment" @click="increment" />
+	<BaseButton variant="secondary" text="Decrement" data-test-id="btn-decrement" @click="decrement" />
+	<BaseButton variant="warning" text="Reset" data-test-id="btn-reset" @click="reset" />
 </template>
 
 <script setup lang="ts">
-import { onMounted } from 'vue';
 import { useCounter } from '../../composables/useCounter';
 import BaseButton from '../ui/BaseButton.vue';
 

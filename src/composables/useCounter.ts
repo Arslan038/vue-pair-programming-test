@@ -11,8 +11,10 @@ export function useCounter() {
     }
 
     function decrement() {
-        count.value--;
-        localStorage.setItem(COUNTER_KEY, safeStringify(count.value));
+        if (count.value > 0) {
+            count.value--;
+            localStorage.setItem(COUNTER_KEY, safeStringify(count.value));
+        }
     }
 
     function reset() {
