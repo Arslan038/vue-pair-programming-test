@@ -1,38 +1,38 @@
 <template>
-    <div class="todo__list">
-        <div v-for="item in filteredItems" :key="item.id">
-            <TodoItem :item="item" />
-        </div>
+  <div class="todo__list">
+    <template v-if="filteredItems.length">
+      <div v-for="item in filteredItems" :key="item.id">
+        <TodoItem :item="item" />
+      </div>
+    </template>
 
-        <p v-if="filteredItems.length < 1">
-            No results found.
-        </p>
-    </div>
+    <p v-else>No results found.</p>
+  </div>
 </template>
 
 <script setup lang="ts">
-import { computed } from 'vue';
-import { useTodo } from '../../composables/useTodo.ts';
-import type { ITodo } from '../../types/todo';
-import TodoItem from './TodoItem.vue';
+import { computed } from "vue";
+import { useTodo } from "../../composables/useTodo.ts";
+import type { ITodo } from "../../types/todo";
+import TodoItem from "./TodoItem.vue";
 
 const { todoList } = useTodo();
 
 interface Props {
-    searchedTerm: string
+  searchedTerm: string;
 }
 
-const { searchedTerm } = defineProps<Props>()
+const { searchedTerm } = defineProps<Props>();
 
 const filteredItems = computed(() => {
-    const query = searchedTerm.trim().toLowerCase();
+  const query = searchedTerm.trim().toLowerCase();
 
-    return todoList.items.filter((item: ITodo) => item.title.toLowerCase().includes(query))
-})
+  return todoList.items.filter((item: ITodo) => item.title.toLowerCase().includes(query));
+});
 </script>
 
 <style scoped lang="scss">
 .todo__list {
-    margin-top: 20px;
+  margin-top: 20px;
 }
 </style>
