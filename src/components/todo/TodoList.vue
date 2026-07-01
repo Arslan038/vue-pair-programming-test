@@ -1,12 +1,12 @@
 <template>
   <div class="todo__list">
     <template v-if="filteredItems.length">
-      <div v-for="item in filteredItems" :key="item.id">
+      <div v-for="item in filteredItems" :key="item.id" data-test-id="todo-list-items">
         <TodoItem :item="item" />
       </div>
     </template>
 
-    <p v-else>No results found.</p>
+    <p v-else data-test-id="no-result-message">No results found.</p>
   </div>
 </template>
 

@@ -21,6 +21,6 @@ export const DEFAULT_TODOS: ITodo[] = [
     },
     {
         id: 5,
-        title: 'Add Unit Testing'
+        title: 'Add Unit/Integration Testing'
     }
 ]
