@@ -17,7 +17,7 @@ export function useCounter() {
 
     function reset() {
         count.value = 0;
-        localStorage.setItem(COUNTER_KEY, safeStringify(count.value));
+        localStorage.removeItem(COUNTER_KEY);
     }
 
     function getCounter() {
