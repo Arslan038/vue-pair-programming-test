@@ -1,6 +1,6 @@
 import { onMounted, ref } from "vue";
 import { COUNTER_KEY } from "../constants/counter";
-import { safeParse, safeStringify } from "../utils/safeParse";
+import { safeParse, safeStringify } from "../utils/storage";
 
 export function useCounter() {
     const count = ref(0);
