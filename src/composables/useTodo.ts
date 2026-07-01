@@ -29,14 +29,15 @@ export function useTodo() {
     }
 
     onMounted(() => {
-        const defaultList = [...loadTodos()];
+        const defaultList = loadTodos();
         // If list doesn't exists set default list
         if (defaultList.length < 1) {
+            todoList.items = [...defaultList];
             saveTodos();
+        } else {
+            // Get list from local storage
+            todoList.items = [...defaultList];
         }
-
-        // Get list from local storage
-        todoList.items = [...loadTodos()];
     })
 
     return {
